@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+  </head>
+  <body>
+    <nav>
+      <a href="{{ '/' | relative_url }}">首页</a> |
+      <a href="/about/">关于</a>
+    </nav>
+
+    <div class="content">{{ content }}</div>
+
+    <footer>
+      <p>博客测试运行中 &copy; {{ site.time | date: "%Y" }}</p>
+    </footer>
+  </body>
+</html>
