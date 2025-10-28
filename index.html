@@ -8,13 +8,19 @@ title: 博客主页
 
 <h2>最新文章列表</h2>
 
-{% for post in site.posts %}
+{% for article in site.collections.articles %}
 <article>
   <h3>
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <a href="{{ article.url | relative_url }}">{{ article.title }}</a>
   </h3>
-  <p>发布于 {{ post.date | date: "%Y-%m-%d" }}</p>
-  <div class="excerpt">{{ post.excerpt }}</div>
+  <p>发布于 {{ article.date | date: "%Y-%m-%d" }}</p>
+  <div class="excerpt">
+    {{ article.excerpt | strip_html | truncatewords: 30 }}
+  </div>
 </article>
 <hr />
 {% endfor %}
+
+<footer>
+  <p>博客测试运行中 &copy; {{ site.time | date: "%Y" }}</p>
+</footer>

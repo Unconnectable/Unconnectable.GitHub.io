@@ -1,44 +1,29 @@
 # ==============================
-# 基本配置 (Basic Settings)
+# 基本配置
 # ==============================
-title: xxxkChow 的个人博客  # 网站标题，会显示在浏览器标签页或首页
-description: 欢迎来到我的技术和生活分享空间。 # 网站的简短描述
-baseurl: ""  # 如果您的博客在子目录下，这里需要填写子目录名，但对于 .github.io 根目录博客，留空即可
-url: "https://Unconnectable.github.io" # 您的域名（替换为您的实际域名）
-author: xxxkChow # 默认作者名
+title: xxxkChow 的个人博客
+description: 欢迎来到我的技术和生活分享空间。
+baseurl: ""
+url: "https://Unconnectable.github.io"
+author: xxxkChow
 
 # ==============================
-# 构建配置 (Build Settings)
+# 集合配置 (核心修改)
 # ==============================
-markdown: kramdown # 使用的 Markdown 处理器
-highlighter: rouge # 代码高亮工具
-permalink: /:year/:month/:title/ # 文章链接的永久链接格式，例如：/2025/10/文章标题/
+collections:
+  articles:
+    output: true # 必须设置为 true，Jekyll 才会为该集合中的文件生成页面
+    permalink: /articles/:name/ # 设置 URL 格式：/articles/1/，/articles/2/ 等
 
-# 排除不需要生成的文件或文件夹
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor/
+# ==============================
+# 默认设置
+# ==============================
+markdown: kramdown
 
-# 默认设置（应用于没有指定 front matter 的文章）
+# 指定 _articles 集合中的文件默认使用 article 布局
 defaults:
   - scope:
       path: ""
-      type: "posts"
+      type: "articles"
     values:
-      layout: "post" # 默认文章使用 post 布局
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "page" # 默认页面使用 page 布局
-
-
-# ==============================
-# 附加功能 (Optional Features)
-# ==============================
-# 可以在此添加评论系统、统计分析等配置
-# 例如:
-# disqus:
-#   shortname: your-disqus-shortname
+      layout: "article"
